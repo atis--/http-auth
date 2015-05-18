@@ -40,7 +40,7 @@
 	},
 	"scripts": {
 		"test": "node ./node_modules/nodeunit/bin/nodeunit tests",
-		"compile": "find ./lib -name '*.coffee' -exec coffee -c {} \;"
+		"compile": "find ./lib -name '*.coffee' -exec coffee -c {} \\;"
 	},
 	"keywords": ["node", "http", "server", "basic", "digest", "access", "authentication"]
 }
