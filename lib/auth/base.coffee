@@ -59,10 +59,11 @@ class Base
       res.end @options.msg401
 
   # Checking if user is authenticated.
-  check: (req, res, callback) ->  
+  check: (req, res, callback, errback) ->
     @isAuthenticated req, (result) =>            
       if not result.user # Asking for authentication.
         @ask res, result
+        (errback.apply this) if errback
       else # Apply default listener.
         req.user = result.user if not @options.skipUser
         (callback.apply this, [req, res]) if callback
